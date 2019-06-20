@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <TextView
+        android:id="@+id/projektyZakres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Zakres ocen: 3-5"
+        app:layout_constraintStart_toStartOf="@+id/projektyButton"
+        app:layout_constraintTop_toBottomOf="@+id/projektyButton" />
+
+    <TextView
+        android:id="@+id/instrukcjeZakres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Zakres ocen: 3-5"
+        app:layout_constraintStart_toStartOf="@+id/instrukcjeButton"
+        app:layout_constraintTop_toBottomOf="@+id/instrukcjeButton" />
+
+    <TextView
+        android:id="@+id/przykladyZakres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Zakres ocen: 3-4"
+        app:layout_constraintStart_toStartOf="@+id/przykladyButton"
+        app:layout_constraintTop_toBottomOf="@+id/przykladyButton" />
+
+    <TextView
+        android:id="@+id/tytulTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:text="TEMATY PROJEKTÓW JAVA"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="TEMATY PROJEKTÓW JAVA" />
+
+    <Button
+        android:id="@+id/projektyButton"
+        android:layout_width="370dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Aplikacje"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/instrukcjeButton"
+        android:layout_width="368dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Instrukcje"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.818"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/projektyZakres" />
+
+    <Button
+        android:id="@+id/przykladyButton"
+        android:layout_width="368dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Przykłady"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instrukcjeZakres" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="374dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tytulTextView"
+        app:srcCompat="@drawable/javalogo"
+        tools:srcCompat="@drawable/javalogo" />
+
+</android.support.constraint.ConstraintLayout>
