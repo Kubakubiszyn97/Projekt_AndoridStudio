@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".przegladaj_szegoly"
+            android:name=".PrzegladajSzczegolyActivity"
             android:label="@string/title_activity_przegladaj_szegoly"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".tematyPrzyklady" />

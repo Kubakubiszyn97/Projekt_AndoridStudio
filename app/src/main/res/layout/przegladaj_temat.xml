@@ -3,12 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="4dp">
 
     <TextView
         android:id="@+id/przegladaj_Tytul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#7A858585"
         android:text="TextView"
         android:textSize="24sp"
         tools:text="Tytuł" />
@@ -17,6 +19,7 @@
         android:id="@+id/przegladaj_opis_krotki"
         android:layout_width="match_parent"
         android:layout_height="62dp"
+        android:background="#918F8F"
         android:text="TextView"
         tools:text="krotki_opis" />
 </LinearLayout>

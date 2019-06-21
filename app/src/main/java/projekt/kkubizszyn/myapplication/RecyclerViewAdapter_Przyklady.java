@@ -11,41 +11,30 @@ import android.widget.TextView;
 
 import java.util.List;
 
-class RecyclerViewAdapter_Projekty extends RecyclerView.Adapter<RecyclerViewAdapter_Projekty.ProjektyViewHolder>
-
-{
-
-
-    private static final String TAG = "RecyclerViewAdapter_Pro";
+class RecyclerViewAdapter_Przyklady extends RecyclerView.Adapter<RecyclerViewAdapter_Przyklady.PrzykladyViewHolder> {
+    private static final String TAG = "RecyclerViewAdapter_Prz";
     private List<Temat> listaTematow;
     private Context mContext;
 
-    public RecyclerViewAdapter_Projekty(List<Temat> listaTematow, Context context) {
+    public RecyclerViewAdapter_Przyklady(List<Temat> listaTematow, Context context) {
         this.listaTematow = listaTematow;
         mContext = context;
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull ProjektyViewHolder projektyViewHolder, int i) {
-        Temat temat = listaTematow.get(i);
-        projektyViewHolder.tytul.setText(temat.getTytul());
-        projektyViewHolder.opis_krotki.setText(temat.getOpis_kr());
-
-    }
-
     @NonNull
     @Override
-    public ProjektyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public PrzykladyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         Log.d(TAG, "onCreateViewHolder:  new view requested");
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.przegladaj_temat,viewGroup,false);
-        return new ProjektyViewHolder(view);
-
+        return new PrzykladyViewHolder(view);
     }
 
+    @Override
+    public void onBindViewHolder(@NonNull PrzykladyViewHolder przykladyViewHolder, int i) {
+        Temat temat = listaTematow.get(i);
+        przykladyViewHolder.tytul.setText(temat.getTytul());
+        przykladyViewHolder.opis_krotki.setText(temat.getOpis_kr());
 
-    public Temat getTemat(int position)
-    {
-        return ((listaTematow != null)&& (listaTematow.size() != 0) ? listaTematow.get(position): null);
     }
 
     @Override
@@ -54,12 +43,18 @@ class RecyclerViewAdapter_Projekty extends RecyclerView.Adapter<RecyclerViewAdap
         return ((listaTematow != null)&& (listaTematow.size() != 0)? listaTematow.size():0);
     }
 
-    static class ProjektyViewHolder extends RecyclerView.ViewHolder{
+    public Temat getTemat(int position)
+    {
+        return ((listaTematow != null)&& (listaTematow.size() != 0) ? listaTematow.get(position): null);
+    }
+
+
+    static class PrzykladyViewHolder extends RecyclerView.ViewHolder {
         private static final String TAG = "ProjektyViewHolder";
         TextView tytul;
         TextView opis_krotki;
 
-        public ProjektyViewHolder(@NonNull View itemView) {
+        public PrzykladyViewHolder(@NonNull View itemView) {
             super(itemView);
             Log.d(TAG, "ProjektyViewHolder: starts");
             this.tytul = (TextView) itemView.findViewById(R.id.przegladaj_Tytul);

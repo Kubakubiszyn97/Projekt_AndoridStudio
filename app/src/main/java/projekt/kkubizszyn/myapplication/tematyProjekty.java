@@ -9,7 +9,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class tematyProjekty extends AppCompatActivity {
+public class tematyProjekty extends Contracts {
     private RecyclerViewAdapter_Projekty mRecyclerViewAdapter_projekty;
 
     @Override
