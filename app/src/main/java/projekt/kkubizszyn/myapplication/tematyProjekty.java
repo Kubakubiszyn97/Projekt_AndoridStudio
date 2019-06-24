@@ -1,16 +1,34 @@
 package projekt.kkubizszyn.myapplication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class tematyProjekty extends Contracts {
+public class tematyProjekty extends Contracts implements RecyclerItemClickListener.OnRecyclerClickListener {
+    private static final String TAG = "tematyProjekty";
     private RecyclerViewAdapter_Projekty mRecyclerViewAdapter_projekty;
+
+    @Override
+    public void onItemClick(View view, int position) {
+
+    }
+
+    @Override
+    public void onItemLongClick(View view, int position) {
+        Log.d(TAG, "onItemLongClick: starts" + position);
+        Intent intent = new Intent(this, PrzegladajSzczegolyActivity.class);
+        intent.putExtra(TEMAT_EKS,mRecyclerViewAdapter_projekty.getTemat(position));
+        startActivity(intent);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +60,10 @@ public class tematyProjekty extends Contracts {
         lista_testowa.add(test9);
         lista_testowa.add(test10);
         lista_testowa.add(test11);
-
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this,recyclerView,this));
         mRecyclerViewAdapter_projekty = new RecyclerViewAdapter_Projekty(lista_testowa,this);
         recyclerView.setAdapter(mRecyclerViewAdapter_projekty);
+
 
 
 

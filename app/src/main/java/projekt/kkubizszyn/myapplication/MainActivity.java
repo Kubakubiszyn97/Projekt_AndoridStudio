@@ -6,13 +6,14 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
+    private static final String TAG = "MainActivity";
     Intent intent = null;
 
     @Override
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         Button projektyButton  = (Button) findViewById(R.id.projektyButton);
         Button instruckjeButton = (Button) findViewById(R.id.instrukcjeButton);
         Button przykladyButton = (Button) findViewById(R.id.przykladyButton);
@@ -30,6 +32,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         projektyButton.setOnClickListener(this);
         przykladyButton.setOnClickListener(this);
 
+        //pobieranie danych
+        Log.d(TAG, "onCreate:starting Async Task");
+        PobierzDane pobierzDane = new PobierzDane();
+        pobierzDane.execute("http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=10/xml");
+        Log.d(TAG, "onCreate: done");
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -40,6 +47,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setAction("Action", null).show();
             }
         });
+
+
+
     }
 
     @Override
