@@ -29,7 +29,6 @@ public class PrzegladajSzczegolyActivity extends Contracts {
             TextView opis = (TextView) findViewById(R.id.szczegoly_opis);
             opis.setText(temat.getOpis_dł());
             tytul.setText(temat.getTytul());
-            oceny.setText(temat.getZakres());
 
         }
 

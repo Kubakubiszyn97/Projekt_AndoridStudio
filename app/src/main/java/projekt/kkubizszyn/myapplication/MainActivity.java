@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //pobieranie danych
         Log.d(TAG, "onCreate:starting Async Task");
         PobierzDane pobierzDane = new PobierzDane();
-        pobierzDane.execute("http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=10/xml");
+        pobierzDane.execute("http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=10/xml");
+        //https://drive.google.com/open?id=1qKda62vLWHffWde_y6a09FZACCwYqkAS
         Log.d(TAG, "onCreate: done");
 
 

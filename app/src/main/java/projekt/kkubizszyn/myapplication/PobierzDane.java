@@ -33,7 +33,8 @@ class PobierzDane extends AsyncTask<String,Void,String> {
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
         Log.d(TAG, "onPostExecute: parameter is" + s);
-
+        ParseXML parseXML = new ParseXML();
+        parseXML.parse(s);
 
     }
 
