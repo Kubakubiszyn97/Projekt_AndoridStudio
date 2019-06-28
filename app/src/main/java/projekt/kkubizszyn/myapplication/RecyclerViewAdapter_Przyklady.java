@@ -16,6 +16,7 @@ class RecyclerViewAdapter_Przyklady extends RecyclerView.Adapter<RecyclerViewAda
     private List<Temat> listaTematow;
     private Context mContext;
 
+
     public RecyclerViewAdapter_Przyklady(List<Temat> listaTematow, Context context) {
         this.listaTematow = listaTematow;
         mContext = context;

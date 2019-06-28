@@ -1,5 +1,6 @@
 package projekt.kkubizszyn.myapplication;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -10,10 +11,17 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 class PobierzDane extends AsyncTask<String,Void,String> {
+    private OnTaskCompleted listener;
     private static final String TAG = "PobierzDane";
+    private ArrayList<Temat> listaProjektow = null;
 
+
+    public PobierzDane(OnTaskCompleted listener) {
+        this.listener = listener;
+    }
 
     @Override
     protected String doInBackground(String... strings) {
@@ -26,7 +34,6 @@ class PobierzDane extends AsyncTask<String,Void,String> {
         return rssFeed;
 
 
-
     }
 
     @Override
@@ -34,8 +41,10 @@ class PobierzDane extends AsyncTask<String,Void,String> {
         super.onPostExecute(s);
         Log.d(TAG, "onPostExecute: parameter is" + s);
         ParseXML parseXML = new ParseXML();
-        parseXML.parse(s);
-
+        listaProjektow=parseXML.parse(s);
+        Log.d(TAG,"size : " + listaProjektow.size());
+        Log.d(TAG, "lista :" + listaProjektow.get(1).getTytul() );
+        listener.OnTaskCompleted(listaProjektow);
     }
 
     private String DownloadXML (String urlPath)
@@ -77,6 +86,9 @@ class PobierzDane extends AsyncTask<String,Void,String> {
 
     }
 
+    public ArrayList<Temat> getListaProjektow() {
+        return listaProjektow;
+    }
 }
 
 

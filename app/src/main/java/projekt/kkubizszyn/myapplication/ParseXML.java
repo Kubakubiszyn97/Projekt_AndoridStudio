@@ -20,7 +20,7 @@ public class ParseXML {
         return listaProjektow;
     }
 
-    public boolean parse(String xmlData) {
+    public ArrayList<Temat> parse(String xmlData) {
         boolean status = true;
         Temat currentTemat = null;
         boolean inTemat = false;
@@ -37,7 +37,7 @@ public class ParseXML {
                 switch (eventType) {
                     case XmlPullParser.START_TAG:
                         Log.d(TAG, "parse: Starting tag for " + tagName);
-                        if("entry".equalsIgnoreCase(tagName)) {
+                        if("temat".equalsIgnoreCase(tagName)) {
                             inTemat = true;
                             currentTemat = new Temat();
                         }
@@ -50,17 +50,17 @@ public class ParseXML {
                     case XmlPullParser.END_TAG:
                         Log.d(TAG, "parse: Ending tag for " + tagName);
                         if(inTemat) {
-                            if("entry".equalsIgnoreCase(tagName)) {
+                            if("temat".equalsIgnoreCase(tagName)) {
                                 listaProjektow.add(currentTemat);
                                 inTemat = false;
-                            } else if("name".equalsIgnoreCase(tagName)) {
+                            } else if("kategoria".equalsIgnoreCase(tagName)) {
                                 currentTemat.setKategoria(textValue);
-                            } else if("artist".equalsIgnoreCase(tagName)) {
+                            } else if("tytul".equalsIgnoreCase(tagName)) {
                                 currentTemat.setTytul(textValue);
-                            } else if("summary".equalsIgnoreCase(tagName)) {
+                            } else if("opis_kr".equalsIgnoreCase(tagName)) {
                                 currentTemat.setOpis_kr(textValue);
-                            } else if("image".equalsIgnoreCase(tagName)) {
-                                currentTemat.setOpis_kr(textValue);
+                            } else if("opis_dl".equalsIgnoreCase(tagName)) {
+                                currentTemat.setOpis_dł(textValue);
                             }
                         }
                         break;
@@ -71,17 +71,17 @@ public class ParseXML {
                 eventType = xpp.next();
 
             }
-            for (Temat app: listaProjektow) {
+            /*for (Temat app: listaProjektow) {
                 Log.d(TAG, "******************");
                 Log.d(TAG, app.toString());
-            }
+            }*/
 
         } catch(Exception e) {
             status = false;
             e.printStackTrace();
         }
 
-        return status;
+        return listaProjektow;
     }
 }
 

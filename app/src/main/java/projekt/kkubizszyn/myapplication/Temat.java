@@ -1,9 +1,11 @@
 package projekt.kkubizszyn.myapplication;
 
+import android.util.Log;
+
 import java.io.Serializable;
 
 class Temat implements Serializable {
-
+    private static final String TAG = "Temat";
 
     private static final long serialVersionUID = 1L;
     private String kategoria;
@@ -14,7 +16,7 @@ class Temat implements Serializable {
     public Temat() {
     }
 
-    public Temat(String kategoria, String tytul,String opis_dl, String opis_kr) {
+    public Temat(String kategoria, String tytul, String opis_dl, String opis_kr) {
         this.kategoria = kategoria;
         this.tytul = tytul;
         this.opis_dł = opis_dl;

@@ -1,7 +1,9 @@
 package projekt.kkubizszyn.myapplication;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.strictmode.SqliteObjectLeakedViolation;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -12,9 +14,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import java.util.ArrayList;
+
+public class MainActivity extends Contracts implements View.OnClickListener,OnTaskCompleted {
     private static final String TAG = "MainActivity";
+    private BazaDanych bazaDanych;
+    private PobierzDane pobierzDane;
     Intent intent = null;
+
+    public void OnTaskCompleted(ArrayList<Temat> lista){
+
+        //bazaDanych.WczytajDaneXML(lista);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +46,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //pobieranie danych
         Log.d(TAG, "onCreate:starting Async Task");
-        PobierzDane pobierzDane = new PobierzDane();
-        pobierzDane.execute("http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=10/xml");
-        //https://drive.google.com/open?id=1qKda62vLWHffWde_y6a09FZACCwYqkAS
+        PobierzDane pobierzDane = new PobierzDane(this);
+        pobierzDane.execute(XML_URL);
+        //https://dstachow.pl/kuba/java_projekt_test2.xml?fbclid=IwAR2awc8CdX99JVudjTOG3N_Q1chxnTScdRquL9lIcRBJm59obFg2gYihcrY
         Log.d(TAG, "onCreate: done");
 
+
+
+        // BAZA
+        bazaDanych = new BazaDanych(this);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
+
+
             }
         });
 
