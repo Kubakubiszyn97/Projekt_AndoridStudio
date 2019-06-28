@@ -8,8 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 
 class Contracts extends AppCompatActivity {
     public static final String TEMAT_EKS = "TEMAT_EKSPORTOWANY";
-    public static String XML_URL = "https://dstachow.pl/kuba/java_projekt_test2.xml?fbclid=IwAR2awc8CdX99JVudjTOG3N_Q1chxnTScdRquL9lIcRBJm59obFg2gYihcrY";
-    public static final String XML_URL_DEFAULT = "https://dstachow.pl/kuba/java_projekt_test2.xml?fbclid=IwAR2awc8CdX99JVudjTOG3N_Q1chxnTScdRquL9lIcRBJm59obFg2gYihcrY";
+    public static String XML_URL = "https://dstachow.pl/kuba/java_projekt_test3.xml";
+    public static final String XML_URL_DEFAULT = "https://dstachow.pl/kuba/java_projekt_test3.xml";
     protected static SQLiteDatabase db;
 
 

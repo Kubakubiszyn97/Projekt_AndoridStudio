@@ -25,21 +25,13 @@ public class PrzegladajSzczegolyActivity extends Contracts {
         if(temat != null)
         {
             TextView tytul =(TextView) findViewById(R.id.szczegoly_tytul);
-            TextView oceny =(TextView) findViewById(R.id.szczegoly_oceny);
             TextView opis = (TextView) findViewById(R.id.szczegoly_opis);
             opis.setText(temat.getOpis_dł());
             tytul.setText(temat.getTytul());
 
         }
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
     }
 
 }

@@ -80,6 +80,14 @@ class BazaDanych extends SQLiteOpenHelper {
         Temat temat;
         Log.d(TAG, "WczytajDaneXML: dodawanie listy tematow");
         SQLiteDatabase db = this.getWritableDatabase();
+        String sqlStatement = "DROP TABLE IF EXISTS " + Contracts.Nazewnictwo.NAZWA_TABELI;
+        db.execSQL(sqlStatement);
+        Log.d(TAG, "WczytajDaneXML: Droping Table");
+        sqlStatement = "CREATE TABLE IF NOT EXISTS "+ Contracts.Nazewnictwo.NAZWA_TABELI +"(_id INTEGER PRIMARY KEY NOT NULL, "+ Contracts.Nazewnictwo.KATEGORIA +
+                " TEXT NOT NULL, "+ Contracts.Nazewnictwo.TEMAT + " TEXT NOT NULL," + Contracts.Nazewnictwo.OPIS_KROTKI +
+                " TEXT NOT NULL,"+ Contracts.Nazewnictwo.OPIS_DLUGI + " TEXT NOT NULL);";
+        db.execSQL(sqlStatement);
+        Log.d(TAG, "WczytajDaneXML:  Creating Table");
         for (int i = 0; i < listaTematow.size();i++)
         {
             temat = listaTematow.get(i);

@@ -24,7 +24,7 @@ public class MainActivity extends Contracts implements View.OnClickListener,OnTa
 
     public void OnTaskCompleted(ArrayList<Temat> lista){
 
-        //bazaDanych.WczytajDaneXML(lista);
+        bazaDanych.WczytajDaneXML(lista);
 
     }
 
@@ -46,7 +46,7 @@ public class MainActivity extends Contracts implements View.OnClickListener,OnTa
 
         //pobieranie danych
         Log.d(TAG, "onCreate:starting Async Task");
-        PobierzDane pobierzDane = new PobierzDane(this);
+        pobierzDane = new PobierzDane(this);
         pobierzDane.execute(XML_URL);
         //https://dstachow.pl/kuba/java_projekt_test2.xml?fbclid=IwAR2awc8CdX99JVudjTOG3N_Q1chxnTScdRquL9lIcRBJm59obFg2gYihcrY
         Log.d(TAG, "onCreate: done");
@@ -55,19 +55,6 @@ public class MainActivity extends Contracts implements View.OnClickListener,OnTa
 
         // BAZA
         bazaDanych = new BazaDanych(this);
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
-
-
-            }
-        });
-
 
 
     }
@@ -110,9 +97,16 @@ public class MainActivity extends Contracts implements View.OnClickListener,OnTa
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent intent = new Intent(this,Settings.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void PobierzPonownieTematy()
+    {
+        pobierzDane.execute(XML_URL);
+
     }
 }
