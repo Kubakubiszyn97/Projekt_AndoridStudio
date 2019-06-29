@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.List;
 public class tematyProjekty extends Contracts implements RecyclerItemClickListener.OnRecyclerClickListener {
     private static final String TAG = "tematyProjekty";
     private RecyclerViewAdapter_Projekty mRecyclerViewAdapter_projekty;
-
+    private Button showInfoButton;
     @Override
     public void onItemClick(View view, int position) {
 
@@ -39,6 +40,15 @@ public class tematyProjekty extends Contracts implements RecyclerItemClickListen
 
         BazaDanych bazaDanych = new BazaDanych(this);
         ArrayList<Temat> lista_testowa = bazaDanych.WczytajProjekty("Aplikacja");
+
+        showInfoButton = (Button) findViewById(R.id.infoProjektyButton);
+        showInfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),Info.class);
+                startActivity(intent);
+            }
+        });
 
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this,recyclerView,this));
         mRecyclerViewAdapter_projekty = new RecyclerViewAdapter_Projekty(lista_testowa,this);

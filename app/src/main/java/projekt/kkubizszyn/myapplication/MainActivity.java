@@ -40,6 +40,7 @@ public class MainActivity extends Contracts implements View.OnClickListener,OnTa
         Button instruckjeButton = (Button) findViewById(R.id.instrukcjeButton);
         Button przykladyButton = (Button) findViewById(R.id.przykladyButton);
 
+
         instruckjeButton.setOnClickListener(this);
         projektyButton.setOnClickListener(this);
         przykladyButton.setOnClickListener(this);
@@ -48,7 +49,6 @@ public class MainActivity extends Contracts implements View.OnClickListener,OnTa
         Log.d(TAG, "onCreate:starting Async Task");
         pobierzDane = new PobierzDane(this);
         pobierzDane.execute(XML_URL);
-        //https://dstachow.pl/kuba/java_projekt_test2.xml?fbclid=IwAR2awc8CdX99JVudjTOG3N_Q1chxnTScdRquL9lIcRBJm59obFg2gYihcrY
         Log.d(TAG, "onCreate: done");
 
 
@@ -104,9 +104,5 @@ public class MainActivity extends Contracts implements View.OnClickListener,OnTa
         return super.onOptionsItemSelected(item);
     }
 
-    public void PobierzPonownieTematy()
-    {
-        pobierzDane.execute(XML_URL);
 
-    }
 }

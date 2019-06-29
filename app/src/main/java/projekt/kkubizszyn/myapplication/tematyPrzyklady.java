@@ -8,13 +8,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
 public class tematyPrzyklady extends Contracts implements RecyclerItemClickListener.OnRecyclerClickListener {
     private static final String TAG = "tematyPrzyklady";
     private RecyclerViewAdapter_Przyklady mRecyclerViewAdapter_przyklady;
-
+    private Button showInfoButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,15 @@ public class tematyPrzyklady extends Contracts implements RecyclerItemClickListe
         BazaDanych bazaDanych = new BazaDanych(this);
         ArrayList<Temat> lista_testowa = bazaDanych.WczytajProjekty("Przyklad");
 
+
+        showInfoButton = (Button) findViewById(R.id.przykladyInfoButton);
+        showInfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),Info.class);
+                startActivity(intent);
+            }
+        });
 
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this,recyclerView,this));
         mRecyclerViewAdapter_przyklady = new RecyclerViewAdapter_Przyklady(lista_testowa,this);

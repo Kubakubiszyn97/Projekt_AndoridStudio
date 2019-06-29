@@ -7,12 +7,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
 public class tematyInstrukcje extends Contracts implements RecyclerItemClickListener.OnRecyclerClickListener {
     private static final String TAG = "tematyInstrukcje";
     RecyclerViewAdapter_Instrukcje mRecyclerViewAdapter_instrukcje;
+    Button showInfoButton;
 
     @Override
     public void onItemClick(View view, int position) {
@@ -38,6 +40,14 @@ public class tematyInstrukcje extends Contracts implements RecyclerItemClickList
         BazaDanych bazaDanych = new BazaDanych(this);
         ArrayList<Temat> lista_testowa = bazaDanych.WczytajProjekty("Instrukcja") ;
 
+        showInfoButton = (Button) findViewById(R.id.infoInstrukcjebutton);
+        showInfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),Info.class);
+                startActivity(intent);
+            }
+        });
 
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this,recyclerView,this));
         mRecyclerViewAdapter_instrukcje = new RecyclerViewAdapter_Instrukcje(lista_testowa,this);

@@ -7,22 +7,23 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Tematy"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Settings"></activity>
+        <activity android:name=".Info"></activity>
+        <activity android:name=".Settings" />
         <activity
             android:name=".PrzegladajSzczegolyActivity"
-            android:label="@string/title_activity_przegladaj_szegoly"
+            android:label="Szczegóły"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".tematyPrzyklady" />
         <activity android:name=".tematyInstrukcje" />
         <activity android:name=".tematyProjekty" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:label="Projekty z przedmiotu Java"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
