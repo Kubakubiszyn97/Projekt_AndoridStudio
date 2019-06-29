@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -52,6 +53,9 @@ public class tematyInstrukcje extends Contracts implements RecyclerItemClickList
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this,recyclerView,this));
         mRecyclerViewAdapter_instrukcje = new RecyclerViewAdapter_Instrukcje(lista_testowa,this);
         recyclerView.setAdapter(mRecyclerViewAdapter_instrukcje);
+
+        Toast toast =  Toast.makeText(getApplicationContext(),"Aby wyświetlić temat, wybierz i przytrzymaj",Toast.LENGTH_LONG );
+        toast.show();
 
 
 

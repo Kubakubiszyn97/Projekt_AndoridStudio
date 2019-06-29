@@ -17,28 +17,42 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="#00FFFFFF"
-            app:cardElevation="10dp">
+            app:cardBackgroundColor="#DB1E24"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="0dp"
+            app:contentPadding="3dp">
 
-            <LinearLayout
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="0dp">
 
-                <TextView
-                    android:id="@+id/szczegoly_tytul"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="Tytul" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/szczegoly_opis"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="Opis" />
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/szczegoly_tytul"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="Tytul"
+                        android:textColor="#0A6DB6"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/szczegoly_opis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="Opis"
+                        android:textColor="#0A6DB6"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
         </android.support.v7.widget.CardView>
     </ScrollView>
 </LinearLayout>

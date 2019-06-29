@@ -10,16 +10,21 @@
         android:id="@+id/przegladaj_Tytul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#7A858585"
+        android:background="#0A6DB6"
+        android:padding="5dp"
         android:text="TextView"
-        android:textSize="24sp"
+        android:textColor="#F8F7F7"
+        android:textSize="18sp"
+        android:textStyle="bold"
         tools:text="Tytuł" />
 
     <TextView
         android:id="@+id/przegladaj_opis_krotki"
         android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:background="#918F8F"
+        android:layout_height="wrap_content"
+        android:background="#260A6CB6"
+        android:padding="5dp"
         android:text="TextView"
+        android:textColor="#0A6CB6"
         tools:text="krotki_opis" />
 </LinearLayout>

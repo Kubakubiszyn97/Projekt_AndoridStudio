@@ -10,11 +10,11 @@
         android:id="@+id/ustawieniaText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:text="USTAWIENIA"
+        android:background="#F1061B"
+        android:text="O  Aplikacji"
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         android:textSize="24dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,51 +23,15 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="134dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="LINK"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ustawieniaText" />
-
-    <Button
-        android:id="@+id/resetURLButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Przywróć Domyślne"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <Button
-        android:id="@+id/applyButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Zatwierdź"
+        android:text="Aplikacja została stworzona prez Jakuba Kubiszyna jako projekt z przedmiotu Java. Rok 2018/2019"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/resetURLButton"
-        app:layout_constraintTop_toBottomOf="@+id/editUrlText" />
-
-    <EditText
-        android:id="@+id/editUrlText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Wklej URL tutaj"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ustawieniaText" />
 
 </android.support.constraint.ConstraintLayout>

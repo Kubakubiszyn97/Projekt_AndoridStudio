@@ -1,7 +1,10 @@
 package projekt.kkubizszyn.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.strictmode.SqliteObjectLeakedViolation;
 import android.support.design.widget.FloatingActionButton;
@@ -13,6 +16,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -35,6 +39,16 @@ public class MainActivity extends Contracts implements View.OnClickListener,OnTa
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        boolean connected = false;
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            //we are connected to a network
+            connected = true;
+        }
+        else
+            connected = false;
+
 
         Button projektyButton  = (Button) findViewById(R.id.projektyButton);
         Button instruckjeButton = (Button) findViewById(R.id.instrukcjeButton);
@@ -45,11 +59,20 @@ public class MainActivity extends Contracts implements View.OnClickListener,OnTa
         projektyButton.setOnClickListener(this);
         przykladyButton.setOnClickListener(this);
 
-        //pobieranie danych
-        Log.d(TAG, "onCreate:starting Async Task");
-        pobierzDane = new PobierzDane(this);
-        pobierzDane.execute(XML_URL);
-        Log.d(TAG, "onCreate: done");
+        if (connected)
+        {
+            //pobieranie danych
+            Log.d(TAG, "onCreate:starting Async Task");
+            pobierzDane = new PobierzDane(this);
+            pobierzDane.execute(XML_URL);
+            Log.d(TAG, "onCreate: done");
+        }
+        else
+        {
+            Toast toast =  Toast.makeText(getApplicationContext(),"Brak połączenia z internetem. Pobranie tematów będzie niemożliwe",Toast.LENGTH_LONG );
+            toast.show();
+        }
+
 
 
 

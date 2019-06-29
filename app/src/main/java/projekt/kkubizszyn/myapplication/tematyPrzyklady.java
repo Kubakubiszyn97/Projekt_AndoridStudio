@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -40,6 +41,9 @@ public class tematyPrzyklady extends Contracts implements RecyclerItemClickListe
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this,recyclerView,this));
         mRecyclerViewAdapter_przyklady = new RecyclerViewAdapter_Przyklady(lista_testowa,this);
         recyclerView.setAdapter(mRecyclerViewAdapter_przyklady);
+
+        Toast toast =  Toast.makeText(getApplicationContext(),"Aby wyświetlić temat, wybierz i przytrzymaj",Toast.LENGTH_LONG );
+        toast.show();
     }
 
 

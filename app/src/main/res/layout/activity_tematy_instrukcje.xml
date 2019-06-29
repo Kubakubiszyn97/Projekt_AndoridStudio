@@ -20,7 +20,10 @@
         android:id="@+id/infoInstrukcjebutton"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:background="#DB1E24"
+        android:fontFamily="@font/amaranth_bold"
         android:text="Dodatkowe Informacje"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
